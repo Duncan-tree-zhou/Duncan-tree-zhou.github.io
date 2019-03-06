@@ -96,20 +96,24 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Duncan&#39;s blog">
-<meta property="og:url" content="https://duncan-tree-zhou.github.io/index.html">
+  <meta name="description" content="method级别的缓存：spring-boot-starter-cache 使用场景 依赖包 基本配置 缓存注解 总结  使用场景 我们经常遇到一些场景，某些方法调用频率高（高频率），调用的时候需要比较高的网络延迟或其他延迟（高延迟），或者需要大量的计算资源（高损耗），同时方法调用的结果与输入参数的关系是相对比较稳定的（慢变化）。这个时候我们就希望以方法的名称和参数作为key，方法的结果作为val">
+<meta property="og:type" content="article">
+<meta property="og:title" content="method级别的缓存：spring-boot-starter-cache ">
+<meta property="og:url" content="https://duncan-tree-zhou.github.io/2019/03/06/method级别的缓存：spring-boot-starter-cache/index.html">
 <meta property="og:site_name" content="Duncan&#39;s blog">
+<meta property="og:description" content="method级别的缓存：spring-boot-starter-cache 使用场景 依赖包 基本配置 缓存注解 总结  使用场景 我们经常遇到一些场景，某些方法调用频率高（高频率），调用的时候需要比较高的网络延迟或其他延迟（高延迟），或者需要大量的计算资源（高损耗），同时方法调用的结果与输入参数的关系是相对比较稳定的（慢变化）。这个时候我们就希望以方法的名称和参数作为key，方法的结果作为val">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-06T05:37:56.902Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Duncan&#39;s blog">
+<meta name="twitter:title" content="method级别的缓存：spring-boot-starter-cache ">
+<meta name="twitter:description" content="method级别的缓存：spring-boot-starter-cache 使用场景 依赖包 基本配置 缓存注解 总结  使用场景 我们经常遇到一些场景，某些方法调用频率高（高频率），调用的时候需要比较高的网络延迟或其他延迟（高延迟），或者需要大量的计算资源（高损耗），同时方法调用的结果与输入参数的关系是相对比较稳定的（慢变化）。这个时候我们就希望以方法的名称和参数作为key，方法的结果作为val">
 
 
 
 
 
 
-  <link rel="canonical" href="https://duncan-tree-zhou.github.io/">
+  <link rel="canonical" href="https://duncan-tree-zhou.github.io/2019/03/06/method级别的缓存：spring-boot-starter-cache/">
 
 
 
@@ -119,7 +123,7 @@
   };
 </script>
 
-  <title>Duncan's blog</title>
+  <title>method级别的缓存：spring-boot-starter-cache  | Duncan's blog</title>
   
 
 
@@ -167,8 +171,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -210,7 +213,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
 
     
     
@@ -306,9 +309,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -340,10 +343,8 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/06/method级别的缓存：spring-boot-starter-cache/" class="post-title-link" itemprop="url">method级别的缓存：spring-boot-starter-cache </a>
+          <h1 class="post-title" itemprop="name headline">method级别的缓存：spring-boot-starter-cache 
+
               
             
           </h1>
@@ -406,9 +407,7 @@
       
 
       
-        
-          
-            <h1 id="method级别的缓存：spring-boot-starter-cache"><a href="#method级别的缓存：spring-boot-starter-cache" class="headerlink" title="method级别的缓存：spring-boot-starter-cache"></a>method级别的缓存：spring-boot-starter-cache</h1><ol>
+        <h1 id="method级别的缓存：spring-boot-starter-cache"><a href="#method级别的缓存：spring-boot-starter-cache" class="headerlink" title="method级别的缓存：spring-boot-starter-cache"></a>method级别的缓存：spring-boot-starter-cache</h1><ol>
 <li><a href="#使用场景">使用场景</a></li>
 <li><a href="#依赖包">依赖包</a></li>
 <li><a href="#基本配置">基本配置</a></li>
@@ -459,8 +458,6 @@
 <li>spring cache 的接入方式加上spring boot autoconfig让我们能够非常方便地实现方法级别的缓存。但是由于spring cache是一个抽象出来的功能，在实现高度解耦的设计的同时没办法同时考虑到各种缓存库的个性化方法。例如如果想在方法级分别定义ttl的时候，spring cache就无能为力了。对于有这种需求的用户，则需要对自动装配的部件有一定的了解才能够找到满足实现需求的办法，有一定的技术和经验门槛。</li>
 </ul>
 
-          
-        
       
     </div>
 
@@ -483,243 +480,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://duncan-tree-zhou.github.io/2019/02/15/Hello-World-2/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="周东科(Duncan Tree Zhou)">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/me.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Duncan's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/02/15/Hello-World-2/" class="post-title-link" itemprop="url">Elasticsearch 5.5 数据导入调优</a>
-              
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
+              <a href="/2019/02/15/Hello-World-2/" rel="next" title="Elasticsearch 5.5 数据导入调优">
+                <i class="fa fa-chevron-left"></i> Elasticsearch 5.5 数据导入调优
+              </a>
             
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-02-15 14:00:00" itemprop="dateCreated datePublished" datetime="2019-02-15T14:00:00+08:00">2019-02-15</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-02-26 20:13:20" itemprop="dateModified" datetime="2019-02-26T20:13:20+08:00">2019-02-26</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <ul>
-<li><p><strong>建立索引层面的优化</strong>：</p>
-<ol>
-<li><p>使用bulk接口批量插入</p>
-</li>
-<li><p>使用多线程进行插入</p>
-<p>web端收到TOO_MANY_REQUEST(429)或者java client端收到EsRejectedExecutioonException 则表示es当前达到处理上限，此时需要减少插入请求以减轻压力，同时数据需要重试。推荐使用随机指数重试</p>
-</li>
-<li><p>设置合理的索引刷盘时间</p>
-<p>index.refresh_interval默认为1s，设置成30s降低时效性以提高插入效率。如果是一次性批量导入，可以把index.refresh_interval设置为-1，等所有插入完成以后，再设置为回来</p>
-</li>
-<li><p>减少备份数</p>
-<p>设置index.number_of_replicas为0，插入数据的时候不需要备份节点，查询的时候可以做</p>
-</li>
-<li><p>关闭交换分区<br>（<a href="https://www.elastic.co/guide/en/elasticsearch/reference/5.5/setup-configuration-memory.html）" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/5.5/setup-configuration-memory.html）</a></p>
-<p>a. 直接关闭系统交换分区</p>
-<p>（sudo swapoff -a 或 config /etc/fstab）</p>
-<p>b. 配置swappiness</p>
-<p>c. add “bootstrap.memory_lock: true” In elasticsearch.yml </p>
-<p>使用linux的mlockall或windows的virutallock锁定进程的内存地址。（最优方案）</p>
-</li>
-<li><p>预留一定的内存（一般为机器的一半）给文件系统缓存</p>
-</li>
-<li><p>如果可以，doc尽量使用自动生成的id</p>
-</li>
-<li><p>如果可以，尽量使用高速硬盘（推荐SSD）,避免使用远程存储文件系统</p>
-</li>
-<li><p>使用合适的indices.memory.index_buffer_size</p>
-</li>
-</ol>
-</li>
-<li><p><strong>相关参数设置</strong>：</p>
-<p>indices.memory.index_buffer_size:可以是百分比，或者是byte size值，默认为10%，指节点的总分配heap乘以10%</p>
-<p>indices.memory.min_index_buffer_size:如果index_buffer_size设为指定百分比，那么这个设置绝对默认值是49mb</p>
-<p>indices.memory.max_index_buffer_size: 如果index_buffer_size设为指定百分比，那么这个设置绝对默认值为无限大<br>如何设置：</p>
-<p>index_buffer_size是node服务所有的shard公用，每个shard最多使用512MB，超过此值对于性能提升没有影响。所以index_buffer_size可以尽量设置大 index_buffer_size = shard数量*512MB。</p>
-</li>
-<li><p><strong>硬盘使用的优化</strong>：</p>
-<ul>
-<li>关闭不需要的特性   <ul>
-<li>对于不需要检索，聚合，过滤，则关闭字段的index（index=false）</li>
-<li>对于不需要进行评分的text类型字段，关闭评分存储（norms=false）</li>
-<li>对于不需要词组查询的text类型字段，关闭频率和位置存储（index_options）</li>
-</ul>
-</li>
-<li>不使用动态的string mappings,指定string的mapping类型</li>
-</ul>
-<p>如果对string字段使用动态mappings，会同时存储一个text字段和一个keyword字段，指定类型则只存储一种</p>
-<ul>
-<li>关闭_all字段功能，（或者使用include_in_all较少_all包含的内容）</li>
-</ul>
-<p>es5.5貌似是默认创建_all字段，而spring data elasticsearch 3.0.12不支持include_in_all，需要深入看一下如何disable _all字段。</p>
-<ul>
-<li>使用best_compression</li>
-</ul>
-<p>使用更大压缩率的算法，但是会降低查询效率。这种方法可以忽略</p>
-<ul>
-<li>使用恰当的存储类型</li>
-</ul>
-<p>如果可以使用integer的就不使用long，如果可以使用float的就不使用都变了，如果可以使用half_float的就不使用float，可以降低存储的大小。这种方法可以忽略</p>
-</li>
-<li><p><strong>非官方优化补充</strong>：</p>
-<ul>
-<li>设置恰当的index/merge/bulk/search的线程数量和队列数量</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># Search pool</span><br><span class="line">thread_pool.search.size: 5</span><br><span class="line">thread_pool.search.queue_size: 100</span><br><span class="line"># 这个参数慎用！强制修改cpu核数，以突破写线程数限制</span><br><span class="line"># processors: 16</span><br><span class="line"># Bulk pool</span><br><span class="line">thread_pool.bulk.size: 16</span><br><span class="line">thread_pool.bulk.queue_size: 300</span><br><span class="line"># Index pool</span><br><span class="line">thread_pool.index.size: 16</span><br><span class="line">thread_pool.index.queue_size: 300</span><br></pre></td></tr></table></figure>
-<ul>
-<li>如果经常有聚合操作，则需要设置恰当的filedata cache大小</li>
-</ul>
-<p>filedata cache的使用场景是一些聚合操作（包括排序），构建filedata cache是个比较耗费资源的操作，尽可能缓存起来<br>此值默认是不受限制，可能会是的heap占用过多导致gc</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">indices.fielddata.cache.size = 15%</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>适当降低节点心跳频率</p>
-<p>大量写入场景会占用带宽，是的节点之间心跳超时。默认的心跳速度为1s，过于频繁，可以适当降低心跳，增加超时时间。</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">discovery.zen.fd.ping_timeout: 120s</span><br><span class="line">discovery.zen.fd.ping_retries: 6</span><br><span class="line">discovery.zen.fd.ping_interval: 30s</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -729,14 +511,15 @@
   </article>
 
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -757,8 +540,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -839,6 +631,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#method级别的缓存：spring-boot-starter-cache"><span class="nav-number">1.</span> <span class="nav-text">method级别的缓存：spring-boot-starter-cache</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用场景"><span class="nav-number">1.1.</span> <span class="nav-text">使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖包"><span class="nav-number">1.2.</span> <span class="nav-text">依赖包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本配置"><span class="nav-number">1.3.</span> <span class="nav-text">基本配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存注解"><span class="nav-number">1.4.</span> <span class="nav-text">缓存注解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.5.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -974,6 +783,10 @@
 
 
   
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
 
   
 
